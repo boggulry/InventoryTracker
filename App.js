@@ -18,6 +18,10 @@ const App = () => {
     setInventory((prevInventory) => [...prevInventory, item]);
   };
 
+  const updateInventory = (updatedInventory) => {
+    setInventory(updatedInventory);
+  };
+
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -40,7 +44,7 @@ const App = () => {
         })}
       >
         <Tab.Screen name="Inventory">
-          {() => <InventoryScreen inventory={inventory} />}
+          {() => <InventoryScreen inventory={inventory} updateInventory={updateInventory} />}
         </Tab.Screen>
         <Tab.Screen name="Add Item">
           {() => <AddItemScreen onAddItem={handleAddItem} />}
